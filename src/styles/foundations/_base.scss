@@ -1,0 +1,229 @@
+@use './settings' as *;
+
+html,
+body {
+    height: -webkit-fill-available; // for iOS
+}
+
+html {
+    color: $color-base;
+    font-size: 62.5%;
+    overflow-y: scroll;
+    width: calc(100vw - 15px); // for PC Dialog
+}
+
+body,
+div,
+form,
+input,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+ol,
+li,
+dl,
+dt,
+dd,
+hr {
+    margin: 0;
+    padding: 0;
+}
+
+header,
+footer,
+nav,
+main,
+article,
+section,
+aside,
+figure {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $font-gothic;
+    font-size: 1.6rem;
+    line-height: 1;
+    -webkit-text-size-adjust: 100%;
+    background: $color-light-gray;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation; // for アプリ
+}
+
+* {
+    // user-select: none; // for アプリ
+}
+
+input,
+textarea {
+    // user-select: text; // for アプリ
+}
+
+a {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    vertical-align: top;
+    border: none;
+}
+
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+sup {
+    position: relative;
+    bottom: 1ex;
+    height: 0;
+    font-size: 70%;
+    line-height: 1;
+    vertical-align: baseline;
+}
+
+::placeholder {
+    color: $color-dark-gray;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.pc {
+    display: block;
+}
+.sp {
+    display: none;
+}
+br.pc {
+    display: inline-block;
+}
+
+// better-picker
+.picker {
+    z-index: $z-index-modal !important;
+}
+.picker .picker-panel .picker-choose .confirm {
+    color: $color-base !important;
+}
+
+// rc-time-picker
+.rc-time-picker-panel {
+    width: 100% !important;
+    z-index: $z-index-modal + 1 !important;
+}
+.rc-time-picker-panel-inner {
+    top: 55px !important;
+    border-radius: 6px !important;
+    border: 1px solid #d7d7d7 !important;
+    box-shadow: none !important;
+}
+.rc-time-picker-panel-input-wrap {
+    display: none;
+    padding: 0 !important;
+}
+.rc-time-picker-panel-input {
+    font-size: 14px;
+    padding: 6px !important;
+    border-radius: 6px 6px 0 0 !important;
+}
+.rc-time-picker-panel-input-invalid {
+    border-color: $color-accent !important;
+}
+.rc-time-picker-panel-combobox {
+    display: flex;
+    border-radius: $border-radius;
+    overflow: hidden;
+}
+.rc-time-picker-panel-select {
+    float: none !important;
+    font-size: 13px !important;
+    width: 50% !important;
+    min-width: 80px !important;
+}
+
+// emoji-picker
+em-emoji-picker {
+    --background-rgb: 85, 170, 255;
+    --border-radius: 24px;
+    --category-icon-size: 24px;
+    --color-border-over: rgba(0, 0, 0, 0.1);
+    --color-border: rgba(0, 0, 0, 0.05);
+    --font-size: 15px;
+    --rgb-background: 255, 255, 255;
+    --rgb-color: 33, 33, 33;
+    --rgb-input: 33, 33, 33;
+
+    height: 50vh;
+    min-height: 400px;
+    max-height: 800px;
+}
+
+@include mq('narrow') {
+    html {
+        font-size: 50%;
+    }
+}
+
+@include mq('hover') {
+    .hover {
+        transition: $transition;
+    }
+    .hover:hover {
+        opacity: 0.7;
+    }
+    .hover.disabled:hover {
+        opacity: 1;
+    }
+}
+
+@include mq('sp') {
+    html {
+        width: 100%;
+    }
+    .pc {
+        display: none;
+    }
+    .sp {
+        display: block;
+    }
+    br.pc {
+        display: none;
+    }
+    br.sp {
+        display: inline-block;
+    }
+}

@@ -1,0 +1,95 @@
+@use 'foundations/settings' as *;
+@use 'foundations/mixin' as *;
+
+.nav {
+    padding-bottom: 40px;
+}
+
+.navTitle {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.navStep {
+    @include flexCenterX2();
+    flex-wrap: wrap;
+
+    li {
+        @include flexCenterX2();
+        position: relative;
+        margin-bottom: 20px;
+        width: 12%;
+        z-index: 0;
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 23px;
+            left: -1px;
+            width: calc(50% + 2px);
+            height: 14px;
+            background: $color-gray;
+            z-index: -2;
+        }
+
+        &::after {
+            position: absolute;
+            content: '';
+            top: 23px;
+            left: calc(50% + 1px);
+            width: calc(50% + 2px);
+            height: 14px;
+            background: $color-gray;
+            z-index: -2;
+        }
+
+        &:first-child {
+            &::before {
+                content: none;
+            }
+        }
+
+        &:last-child {
+            &::after {
+                content: none;
+            }
+        }
+
+        &:global(.current) {
+            &::before {
+                background: $color-primary;
+            }
+        }
+
+        &:global(.passed) {
+            &::before {
+                background: $color-primary;
+            }
+            &::after {
+                background: $color-primary;
+            }
+        }
+    }
+}
+
+.navStepItem {
+    @include flexCenterX2();
+    @include fontLatoRegular();
+    position: relative;
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    text-align: center;
+    border-radius: 50%;
+    background: $color-gray;
+
+    :global(.current) & {
+        color: #fff;
+        background: $color-primary;
+    }
+    :global(.passed) & {
+        color: #fff;
+        background: $color-primary;
+    }
+}

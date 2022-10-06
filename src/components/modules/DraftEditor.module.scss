@@ -1,0 +1,184 @@
+@use 'foundations/settings' as *;
+@use 'foundations/mixin' as *;
+@use 'components/foundations/Form.module.scss' as *;
+
+.editor {
+    position: relative;
+
+    img {
+        width: auto;
+    }
+
+    :global(.public-DraftStyleDefault-block) {
+        margin: 0;
+    }
+
+    :global(.rdw-modal-visible) {
+        visibility: hidden;
+    }
+
+    :global(.rdw-editor-toolbar) {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    .editorDisabledOverlay {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: $z-index-modal;
+    }
+}
+
+.editorWrapper {
+    .editorInput {
+        min-height: 122px;
+        max-height: 194px;
+    }
+}
+
+.editorWrapperEmoji {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+
+    .editorToolbar {
+        width: 50px;
+    }
+
+    .editorInput {
+        width: calc(100% - 60px);
+    }
+}
+
+.editorToolbar {
+    :global(.rdw-option-wrapper) {
+        margin: 5px;
+        min-width: 40px;
+        height: 35px;
+        border: 1px solid $color-gray;
+        border-radius: 50px;
+        box-sizing: border-box;
+
+        &:global(.disabled) {
+            cursor: default;
+            opacity: 0.6;
+            background: #f1f1f1;
+
+            &:hover {
+                box-shadow: none;
+            }
+        }
+    }
+
+    :global(.rdw-option-active) {
+        background: $color-light-gray;
+    }
+
+    // link
+
+    :global(.rdw-link-wrapper) {
+        margin: 5px;
+        height: 35px;
+    }
+
+    :global(.rdw-link-modal) {
+        left: 0;
+        height: auto;
+        text-align: left;
+    }
+
+    :global(.rdw-link-modal-label) {
+        font-size: 13px;
+    }
+
+    :global(.rdw-link-modal-input) {
+        display: block;
+        padding: 6px;
+        font-size: 13px;
+        line-height: 24px;
+        border: 1px solid $color-gray;
+        outline: none;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    :global(.rdw-link-modal-target-option) {
+        font-size: 13px;
+    }
+
+    :global(.rdw-link-modal-buttonsection) {
+        @include flexCenterX2();
+
+        button {
+            margin: 0 5px;
+            font-size: 12px;
+        }
+    }
+
+    // emoji
+
+    :global(.rdw-emoji-wrapper) {
+        margin: 5px;
+        height: 35px;
+    }
+
+    :global(.rdw-emoji-modal) {
+        left: 0;
+    }
+
+    :global(.rdw-dropdown-wrapper) {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 50px;
+        height: 100%;
+        border: 1px solid $color-gray;
+        border-radius: 50px;
+        box-sizing: border-box;
+
+        .disabled & {
+            background: $color-gray;
+        }
+    }
+
+    :global(.rdw-dropdown-selectedtext) {
+        padding: 0 8px;
+    }
+
+    :global(.rdw-dropdown-carettoopen) {
+        top: 50%;
+        right: 8px;
+        margin-top: -3px;
+    }
+
+    :global(.rdw-dropdown-carettoclose) {
+        top: 50%;
+        right: 8px;
+        margin-top: -3px;
+    }
+}
+
+.editorInput {
+    @extend .formTextarea;
+    resize: none;
+    padding: 12px;
+    min-height: 74px;
+    max-height: 122px;
+
+    .disabled & {
+        color: $color-dark-gray;
+        background: $color-gray;
+    }
+
+    a {
+        color: $color-primary;
+        text-decoration: underline;
+    }
+}

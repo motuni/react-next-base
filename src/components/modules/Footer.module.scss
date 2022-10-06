@@ -1,0 +1,15 @@
+@use 'foundations/settings' as *;
+@use 'foundations/mixin' as *;
+
+.footer {
+    height: 45px;
+    background: #fff;
+
+    .inner {
+        @include flexCenterX2();
+        margin: 0 auto;
+        max-width: $max-width;
+        height: 100%;
+        font-size: 1.2rem;
+    }
+}

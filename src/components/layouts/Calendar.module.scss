@@ -1,0 +1,127 @@
+@use 'foundations/settings' as *;
+@use 'foundations/mixin' as *;
+
+.calendar {
+    padding: 10px;
+    background: #fff;
+    border-radius: $border-radius;
+    filter: drop-shadow(0px 4px 2px #f1f1f1);
+}
+
+.calendarNav {
+    @include flexCenter();
+    justify-content: space-between;
+    position: relative;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $color-gray;
+}
+
+.calendarNavTitle {
+    font-size: 1.5rem;
+    line-height: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.calendarHeader {
+    @include flexCenter();
+    justify-content: space-between;
+    padding: 20px 0 6px;
+
+    :global(.week) {
+        padding: 0 5px;
+        width: 15%;
+        max-width: 48px;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    :global(.sun) {
+        color: #f00;
+    }
+
+    :global(.sat) {
+        color: #00f;
+    }
+}
+
+.calendarBody {
+    padding-bottom: 10px;
+
+    :global(.days) {
+        // ul
+        @include flexCenter();
+        justify-content: space-between;
+
+        li {
+            display: block;
+            padding: 2px;
+            width: 15%;
+            max-width: 48px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+    }
+
+    :global(.day) {
+        // a
+        @include flexCenterX2();
+        position: relative;
+        padding: 8px 0 12px;
+        border: 1px solid transparent;
+        border-radius: $border-radius;
+        box-sizing: border-box;
+
+        span {
+            display: inline-block;
+            padding-bottom: 22px;
+        }
+
+        &:global(.today) {
+            color: $color-primary;
+        }
+
+        &:global(.holiday) {
+            color: #f00;
+        }
+
+        &:global(.sat) {
+            color: #00f;
+        }
+
+        &:global(.outside) {
+            color: #ccc;
+        }
+
+        &:global(.outside.holiday) {
+            color: #ffd8d8;
+        }
+
+        &:global(.outside.sat) {
+            color: #b4bde7;
+        }
+
+        &:global(.active) {
+            background: $color-light-gray;
+        }
+    }
+}
+
+.calendarItemEvent {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 20px;
+    z-index: 10;
+
+    :global(.outside) & {
+        opacity: 0.4;
+    }
+}

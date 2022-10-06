@@ -1,0 +1,78 @@
+@use 'foundations/settings' as *;
+@use 'foundations/mixin' as *;
+
+.table {
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    border: 1px solid $color-gray;
+    border-collapse: collapse;
+    box-sizing: border-box;
+
+    th,
+    td {
+        padding: 10px;
+        position: relative;
+        text-align: center;
+        vertical-align: middle;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        border-bottom: 1px solid $color-gray;
+        box-sizing: border-box;
+    }
+
+    th {
+        background: $color-dark-gray;
+    }
+
+    &.detail {
+        font-size: 1rem;
+        line-height: 1.4rem;
+        border-right: 0;
+        td {
+            border-right: 1px solid $color-gray;
+
+            &:last-child {
+                border-right: 0;
+            }
+        }
+    }
+
+    tr {
+        &:last-child {
+            td {
+                border-bottom: 0;
+            }
+        }
+
+        &:global(.isDisable) {
+            background: #d2d2d2;
+        }
+
+        &:global(.isActive) {
+            background: #fff0ec;
+        }
+
+        &.clickable {
+            cursor: pointer;
+            transition: $transition;
+
+            @include mq('hover') {
+                &:not(:global(.isDisable)):hover {
+                    background: $color-dark-gray;
+                }
+                &:global(.isActive):hover {
+                    background: #fae0d9;
+                }
+            }
+        }
+    }
+
+    :global(.textLeft) {
+        text-align: left;
+    }
+
+    :global(.valignTop) {
+        vertical-align: top;
+    }
+}

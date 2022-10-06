@@ -1,0 +1,20 @@
+@use './settings' as *;
+
+@mixin flexCenter() {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flexCenterX2() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin fontLatoRegular {
+    font-family: 'Lato', sans-serif;
+}
+
+@mixin dropShadow {
+    filter: drop-shadow(0px 2px 4px #ccc);
+}

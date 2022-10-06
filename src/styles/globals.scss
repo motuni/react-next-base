@@ -1,0 +1,16 @@
+@use 'foundations/base' as *;
+
+:root {
+    --c-primary: #3ea8ff;
+    // like this => background: var(--c-primary);
+}
+
+:root[data-theme='light'] {
+    // ライトテーマのプロパティ値
+    --color-primary: #6750a4;
+}
+
+:root[data-theme='dark'] {
+    // ダークテーマのプロパティ値
+    --color-primary: #d0bcff;
+}

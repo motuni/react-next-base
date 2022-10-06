@@ -1,0 +1,27 @@
+@use 'foundations/settings' as *;
+@use 'foundations/mixin' as *;
+@use 'components/foundations/Form.module.scss' as *;
+
+.timePickerWrapper {
+    :global(.rc-time-picker) {
+        display: block;
+    }
+
+    :global(.rc-time-picker-clear) {
+        top: 0 !important;
+        right: 15px !important;
+        width: 15px !important;
+        height: 100% !important;
+    }
+    :global(.rc-time-picker-clear-icon:after) {
+        content: '' !important;
+        width: 15px !important;
+        height: 100% !important;
+        background: url(/img/icon_input_clear.svg) 0 center no-repeat;
+        background-size: 15px auto;
+    }
+    :global(.rc-time-picker-input) {
+        @extend .formText;
+        color: inherit !important;
+    }
+}

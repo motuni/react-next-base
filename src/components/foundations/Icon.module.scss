@@ -1,0 +1,65 @@
+@use 'foundations/settings' as *;
+@use 'foundations/mixin' as *;
+
+.sendMessageIcon {
+    width: 21px;
+}
+
+.photoLibraryIcon {
+    width: 20px;
+}
+
+.cameraShotIcon {
+    width: 24px;
+}
+
+.chatAvatarIcon {
+    width: 22px;
+}
+
+.calendarIcon {
+    width: 18px;
+}
+
+.fileUploadIcon {
+    width: 14px;
+}
+
+.trashCanIcon {
+    width: 14px;
+}
+
+.contentAddIcon {
+    width: 15px;
+}
+
+.contentRemove {
+    width: 15px;
+    height: 3px;
+}
+
+.imageAddIconWith {
+    padding-top: 60px;
+    background: url(/img/icon_image_add.svg) center 0 no-repeat;
+    background-size: 49px auto;
+}
+
+.calendarPrevIcon,
+.calendarNextIcon {
+    width: 10px;
+}
+
+.calendarEventIcon {
+    width: 20px;
+}
+
+.mapCurrentIcon {
+    width: 12px;
+    height: 16px;
+}
+
+.calendarIconWith {
+    padding-right: 24px;
+    background: url(/img/icon_calendar.svg) right center no-repeat;
+    background-size: 18px auto;
+}

@@ -1,0 +1,282 @@
+@use 'foundations/settings' as *;
+@use 'foundations/mixin' as *;
+
+.chartLabel {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.doughnutContainer {
+    position: relative;
+
+    .doughnutInner {
+        padding: 5.8vw;
+        position: relative;
+    }
+
+    .doughnutPoint {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 26px;
+        height: 26px;
+        background: #f5879c;
+        border: 5px solid #fff;
+        border-radius: 50%;
+        // transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        z-index: 50;
+    }
+
+    .chartLabel {
+        @include flexCenterX2();
+        position: absolute;
+        top: 36px;
+        bottom: 36px;
+        right: 36px;
+        left: 36px;
+        margin: auto;
+        width: calc(100% - 72px);
+        height: calc(100% - 72px);
+        border-radius: 50%;
+        overflow: hidden;
+        z-index: 10;
+    }
+}
+
+.radarContainer {
+    .radarContainerInner {
+        margin: auto;
+        width: 80%;
+    }
+    .chartLabel {
+        margin-bottom: 20px;
+    }
+}
+
+.lineContainer {
+    .chartLabel {
+        margin-bottom: 20px;
+    }
+
+    .chartLegend {
+        @include flexCenter();
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+
+        .chartLegendLeft {
+            padding: 0 4px;
+            color: #666;
+        }
+        .chartLegendCenter {
+            @include flexCenterX2();
+
+            li {
+                position: relative;
+                padding: 0 5px 0 25px;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    top: 50%;
+                    left: 0;
+                    width: 20px;
+                    height: 2px;
+                    transform: (0, -50%);
+                }
+
+                &:first-child {
+                    &::before {
+                        background: #e1765b;
+                    }
+                }
+
+                &:last-child {
+                    &::before {
+                        background: #74ad77;
+                    }
+                }
+            }
+        }
+        .chartLegendRight {
+            padding: 0 4px;
+            color: #666;
+            text-align: right;
+        }
+    }
+}
+
+.barContainer {
+    .chartLegend {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 15px;
+
+        li {
+            position: relative;
+            margin-left: 10px;
+            padding-left: 16px;
+            font-size: 8px;
+            line-height: 12px;
+            font-weight: 600;
+
+            &::before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 12px;
+                height: 12px;
+            }
+
+            &:global(.a) {
+                &::before {
+                    background: #dfdec6;
+                }
+            }
+
+            &:global(.b) {
+                &::before {
+                    background: #a3aa8b;
+                }
+            }
+
+            &:global(.c) {
+                &::before {
+                    background: #3c6469;
+                }
+            }
+        }
+    }
+
+    .chart {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 100px;
+            width: 1px;
+            height: 100%;
+            background: #979797;
+            z-index: 10;
+        }
+    }
+
+    .chartLine {
+        display: flex;
+        margin-bottom: 10px;
+
+        .chartLineLabel {
+            @include flexCenter();
+            width: 100px;
+            font-size: 1.3rem;
+        }
+
+        .chartLineData {
+            position: relative;
+            width: calc(100% - 100px);
+            z-index: 5;
+        }
+
+        .chartLineDataTotal {
+            display: flex;
+
+            .chartLineDataTotalBar {
+                @include flexCenter();
+                justify-content: flex-end;
+                width: 100%;
+                height: 17px;
+                font-size: 8px;
+                font-weight: 600;
+                background: #f5879c;
+                box-sizing: border-box;
+            }
+        }
+
+        .chartLineDataABC {
+            display: flex;
+
+            .chartLineDataA {
+                position: relative;
+                height: 17px;
+                background: #dfdec6;
+            }
+
+            .chartLineDataB {
+                position: relative;
+                height: 17px;
+                background: #a3aa8b;
+            }
+
+            .chartLineDataC {
+                position: relative;
+                height: 17px;
+                color: #fff;
+                background: #3c6469;
+            }
+
+            .chartLineDataABCText {
+                @include flexCenterX2();
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                font-size: 8px;
+                font-weight: 600;
+                z-index: 10;
+            }
+        }
+    }
+
+    .chartTarget {
+        position: absolute;
+        top: 0;
+        left: 100px;
+        width: calc(100% - 100px);
+        height: 100%;
+
+        .chartTargetLine {
+            position: absolute;
+            top: 0;
+            height: calc(100% + 30px);
+            width: 60px;
+
+            &::before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 1px;
+                height: calc(100% - 30px);
+                background-image: repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 4px,
+                    #979797 4px,
+                    #979797 9px,
+                    transparent 9px
+                );
+                background-size: 1px 100%;
+                background-position: 0 0;
+                background-repeat: no-repeat;
+                z-index: 1;
+            }
+
+            .chartTargetLineLabel {
+                position: absolute;
+                left: 0;
+                bottom: 10px;
+                width: 100%;
+                font-size: 1rem;
+                text-align: center;
+            }
+        }
+    }
+}

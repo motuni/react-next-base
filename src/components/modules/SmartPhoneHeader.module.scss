@@ -1,0 +1,39 @@
+@use 'foundations/settings' as *;
+@use 'foundations/mixin' as *;
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background: #fff;
+    border-bottom: 1px solid $color-gray;
+    z-index: $z-index-nav;
+
+    .inner {
+        @include flexCenterX2();
+        position: relative;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .headerTitle {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+
+    .headerLeft {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translate(0, -50%);
+    }
+
+    .headerRight {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translate(0, -50%);
+    }
+}

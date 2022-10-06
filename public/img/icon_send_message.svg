@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>navigation</title>
+    <defs>
+        <path d="M3.95354593,9.71135214 L9.24273262,11.0336488 C9.60101785,11.1232201 9.88076819,11.4029705 9.9703395,11.7612557 L11.2926362,17.0504424 L17.8978174,3.10617092 L3.95354593,9.71135214 Z M8.17557587,12.8284124 L0.757661374,10.9739338 C-0.153277897,10.746199 -0.27647632,9.50201573 0.572110654,9.10005348 L19.5721107,0.10005348 C20.4212859,-0.302187406 21.3061757,0.582702459 20.9039348,1.43187766 L11.9039348,20.4318777 C11.5019726,21.2804646 10.2577893,21.1572662 10.0300545,20.2463269 L8.17557587,12.8284124 Z" id="path-1"></path>
+    </defs>
+    <g id="🕹-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Feather" transform="translate(-1427.000000, -461.000000)">
+            <g id="navigation" transform="translate(1427.000000, 461.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Shape" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+                <g id="COLOR/-black" mask="url(#mask-2)" fill="#FFFFFF">
+                    <g transform="translate(-1.000000, -1.000000)" id="Rectangle">
+                        <rect x="0" y="0" width="24" height="24"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

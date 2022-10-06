@@ -1,0 +1,52 @@
+@use 'foundations/settings' as *;
+@use 'foundations/mixin' as *;
+
+.wrapper {
+    padding: 60px 15px;
+    text-align: center;
+}
+
+.wrapperColumn {
+    display: flex;
+    border: 1px solid $color-gray;
+}
+
+.wrapperColumnMain {
+    padding: 20px;
+    width: calc(100% - 382px);
+    height: 1200px;
+    border-right: 1px solid $color-gray;
+    box-sizing: border-box;
+}
+
+.wrapperColumnSide {
+    position: relative;
+    width: 382px;
+}
+
+.wrapperColumnSideNav {
+    position: relative;
+    width: 382px;
+    z-index: $z-index-nav;
+
+    &.fixed {
+        position: fixed;
+        top: 0;
+        right: 31px;
+    }
+
+    :global(.sideNavTitle) {
+        padding: 11px;
+        font-size: 1.3rem;
+        text-align: center;
+        border-bottom: 1px solid $color-gray;
+    }
+
+    :global(.sideNavEmoji) {
+        padding: 15px;
+    }
+
+    :global(.em-emoji-picker) {
+        width: 100% !important;
+    }
+}

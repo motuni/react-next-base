@@ -1,0 +1,25 @@
+@use 'foundations/settings' as *;
+@use 'foundations/mixin' as *;
+
+.main {
+    position: relative;
+    padding: 15px;
+    min-width: $min-width;
+    box-sizing: border-box;
+
+    .inner {
+        min-height: calc(100vh - 60px - 45px - 30px);
+        background: #fff;
+    }
+}
+
+.smartPhoneMain {
+    padding-top: 65px;
+    min-height: calc(100vh - 65px);
+    min-height: -webkit-fill-available;
+    box-sizing: border-box;
+
+    .inner {
+        padding: 15px;
+    }
+}

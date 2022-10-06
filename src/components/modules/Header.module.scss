@@ -1,0 +1,21 @@
+@use 'foundations/settings' as *;
+@use 'foundations/mixin' as *;
+
+.header {
+    height: 60px;
+    background: #fff;
+
+    .inner {
+        @include flexCenter();
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 0 15px;
+        max-width: $max-width;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .headerTitle {
+        font-size: 1.6rem;
+    }
+}
